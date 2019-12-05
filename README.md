@@ -1,1 +1,2 @@
 # leetcode
+do leetcode exercises
