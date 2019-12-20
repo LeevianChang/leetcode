@@ -13,3 +13,8 @@ Output: 1->1->2->3->4->4->5->6
 
 >Link：https://leetcode-cn.com/problems/merge-k-sorted-lists
 
+## Train of Sort
+方法1：
+暴力法
+方法2：
+分治法
