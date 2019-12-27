@@ -26,3 +26,6 @@ candidates 中的数字可以无限制重复被选取。
 ]
 
 >Link：https://leetcode-cn.com/problems/combination-sum
+
+## Train of Thought
+回溯法
