@@ -49,7 +49,54 @@ class Solution:
         elif len(nums2)==0:
             return self.findMidNumber(mid,hasGot+len(nums1[:last_nums1+1]),nums1[last_nums1+1:],nums2)
 
+    def findMedianSortedArrays2(self, nums1, nums2):
+        length1 = len(nums1)
+        length2 = len(nums2)
 
+        length = length1+length2
+
+        if length%2 == 0:
+            left = self.findNnumber(nums1,nums2,int(length/2))
+            right = self.findNnumber(nums1,nums2,int(length/2+1))
+        else:
+            left = right = self.findNnumber(nums1,nums2,int(length/2)+1)
+
+        return (left+right)/2
+
+    def findNnumber(self,nums1,nums2,n):
+        if n==1:
+            if len(nums1)>0 and len(nums2)>0:
+                print( min(nums1[0],nums2[0]))
+                return min(nums1[0],nums2[0])
+            elif len(nums1)>0:
+                return nums1[0]
+            else:
+                return nums2[0]
+
+        
+        if len(nums1)==0:
+            return nums2[n-1]
+        if len(nums2)==0:
+            return nums1[n-1]
+        k = int(n/2)
+        if k-1>=0 and k<len(nums1):
+            nums1Last = nums1[k-1]
+        elif k-1==0 and k<len(nums1):
+            nums1Last = nums1[0]
+
+        else:
+            nums1Last = nums1[-1]
+            k = len(nums1)
+        if k-1>=0 and k<len(nums2):
+            nums2Last = nums2[k-1]
+        else:
+            k = len(nums2)
+            nums2Last = nums2[-1]
+
+        if nums1Last<nums2Last:
+           return self.findNnumber(nums1[k:],nums2,n-k)
+        else:
+           return self.findNnumber(nums1,nums2[k:],n-k)
 
     
 
