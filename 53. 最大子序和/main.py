@@ -37,9 +37,19 @@ class Solution:
             maxRight = max(maxRight,rightSum)
         return (maxLeft+maxRight)
 
-        
+    def maxSubArray3(self, nums):
+        n = len(nums)
+        curr_sum = max_sum = nums[0]
+
+        for i in range(1, n):
+
+            curr_sum = max(nums[i], curr_sum + nums[i])
+            print(curr_sum)
+            max_sum = max(max_sum, curr_sum)
+            
+        return max_sum
 
         
 s = Solution()
-f = s.maxSubArray2([-1,9999,-1])
+f = s.maxSubArray3([-1,3,-1,2])
 print(f)
